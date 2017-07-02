@@ -111,7 +111,7 @@ export class ManageContact implements OnInit {
                 );
                 break;
             case DBOperation.update:
-                this._contactService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                this._contactService.put(Global.BASE_USER_ENDPOINT, formData._value.id, formData._value).subscribe(
                     data => {
                         if (data == 1) //Success
                         {
@@ -127,7 +127,7 @@ export class ManageContact implements OnInit {
                 );
                 break;
             case DBOperation.delete:
-                this._contactService.delete(Global.BASE_USER_ENDPOINT, formData._value.Id).subscribe(
+                this._contactService.delete(Global.BASE_USER_ENDPOINT, formData._value.id).subscribe(
                     data => {
                         if (data == 1) //Success
                         {

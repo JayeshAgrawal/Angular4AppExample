@@ -106,7 +106,7 @@ var ManageContact = (function () {
                 });
                 break;
             case enum_1.DBOperation.update:
-                this._contactService.put(global_1.Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(function (data) {
+                this._contactService.put(global_1.Global.BASE_USER_ENDPOINT, formData._value.id, formData._value).subscribe(function (data) {
                     if (data == 1) {
                         _this.dialogRef.close("success");
                     }
@@ -118,7 +118,7 @@ var ManageContact = (function () {
                 });
                 break;
             case enum_1.DBOperation.delete:
-                this._contactService.delete(global_1.Global.BASE_USER_ENDPOINT, formData._value.Id).subscribe(function (data) {
+                this._contactService.delete(global_1.Global.BASE_USER_ENDPOINT, formData._value.id).subscribe(function (data) {
                     if (data == 1) {
                         _this.dialogRef.close("success");
                     }
