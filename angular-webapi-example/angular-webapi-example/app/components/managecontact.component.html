@@ -46,7 +46,7 @@
                     <input mdInput placeholder="Technology" [mdAutocomplete]="auto" formControlName="techno">
                 </md-input-container>
                 <md-autocomplete #auto="mdAutocomplete">
-                    <md-option *ngFor="let techno of technologies | async" [value]="techno">
+                    <md-option *ngFor="let techno of technologies" [value]="techno">
                         {{ techno }}
                     </md-option>
                 </md-autocomplete>
