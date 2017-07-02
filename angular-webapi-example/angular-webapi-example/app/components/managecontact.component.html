@@ -1,0 +1,69 @@
+﻿<form novalidate (ngSubmit)="onSubmit(contactFrm)" [formGroup]="contactFrm">
+    <div>
+        <h1 md-dialog-title><span><md-icon>create</md-icon>{{modalTitle}}</span></h1>
+    </div>
+    <div style="padding-bottom:1px;background-color:#d8d8d8"></div>
+    <div md-dialog-content class="md-dialog-container">
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Name" formControlName="name">
+            </md-input-container>
+            <div *ngIf="formErrors.name" class="text-danger">
+                {{ formErrors.name }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input type="email" mdInput placeholder="Email" formControlName="email">
+            </md-input-container>
+            <div *ngIf="formErrors.email" class="text-danger">
+                {{ formErrors.email }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-radio-group formControlName="gender">
+                <md-radio-button *ngFor="let gndr of genders" [value]="gndr">
+                    {{gndr}}
+                </md-radio-button>
+            </md-radio-group>
+            <div *ngIf="formErrors.gender" class="text-danger">
+                {{ formErrors.gender }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container style="width:50%">
+                <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" formControlName="birth">
+                <button mdSuffix [mdDatepickerToggle]="picker"></button>
+            </md-input-container>
+            <md-datepicker #picker></md-datepicker>
+            <div *ngIf="formErrors.birth" class="text-danger">
+                {{ formErrors.birth }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <div class="line_ctrl">
+                <md-input-container>
+                    <input mdInput placeholder="Technology" [mdAutocomplete]="auto" formControlName="techno">
+                </md-input-container>
+                <md-autocomplete #auto="mdAutocomplete">
+                    <md-option *ngFor="let techno of technologies | async" [value]="techno">
+                        {{ techno }}
+                    </md-option>
+                </md-autocomplete>
+                
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input type="text" mdInput placeholder="Message" formControlName="message">
+            </md-input-container>
+            <div *ngIf="formErrors.message" class="text-danger">
+                {{ formErrors.message }}
+            </div>
+        </div>
+    </div>
+    <md-dialog-actions class="md-dialog-footer" align="end">
+        <button color="warn" type="button" md-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" color="primary" [disabled]="contactFrm.invalid" md-raised-button>{{modalBtnTitle}}</button>
+        </ md-dialog-actions>
+</form>

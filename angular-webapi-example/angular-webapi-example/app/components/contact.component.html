@@ -1,0 +1,49 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Contact Form
+    </div>
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addContact()">Add</button></div>
+            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
+            <div *ngIf='contacts && contacts.length==0' class="alert alert-info" role="alert">No record found!</div>
+            <table class='table table-striped' *ngIf='contacts && contacts.length'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Birthday</th>
+                        <th>Technology</th>
+                        <th>Message</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contacts">
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.gender}}</td>
+                        <td>{{contact.birth}}</td>
+                        <td>{{contact.techno}}</td>
+                        <td>{{contact.message}}</td>
+                        <td>
+                            <button title="Edit" class="btn btn-primary" (click)="editContact(contact.id)">Edit</button>
+                            <button title="Delete" class="btn btn-danger" (click)="deleteContact(contact.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+            </div>
+        </div>
+        <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            {{msg}}
+        </div>
+    </div>
+</div>
+
+
