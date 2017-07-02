@@ -56,7 +56,7 @@
     "@types/node": "^6.0.46",
     "@types/jasmine": "2.5.36",
     "@angular/material": "2.0.0-beta.6",
-    "@angular/animations": "4.1.3",
+    "@angular/animations": "4.0.0",
     "hammerjs": "2.0.8"
   },
   "repository": {}
